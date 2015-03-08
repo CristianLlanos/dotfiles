@@ -9,7 +9,7 @@ nnoremap <silent> <Plug>NetrwBrowseX :call netrw#NetrwBrowseX(expand("<cWORD>")
 map <C-P> :tabnew<Enter>
 " abrir ventana horizontal con <CTRL-N>
 map <C-N> <C-W>n
-" abrir ventana vertical con <CTRL-N>
+" abrir ventana vertical con <CTRL-N>n
 map <C-N>n :vsp<Enter>
 " cerrar ventana con <CTRL-C>
 map <C-C> <C-W>c
