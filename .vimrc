@@ -10,6 +10,8 @@ endif
 set encoding=utf-8
 " Elements to keep in history
 set history=1000
+" See commands as they are typed
+set showcmd
 
 " Color scheme name (peacocks-in-space)
 colorscheme material-theme
@@ -101,6 +103,10 @@ let g:mapleader = ","
 nmap <leader>w :w!<cr>
 " Close current buffer ,q
 nmap <leader>q <C-W>c
+" nmap <leader>q :q!<cr>
+
+" Browse pages
+nmap <Space> <PageDown>
 
 " Use jj to escape from insert mode to normal mode
 imap jj <esc>
@@ -133,14 +139,14 @@ nmap <C-t> :tabnew<Enter>
 nmap <C-Tab> gt
 " Navigate to the left tab <ctrl-shif-tab>
 nmap <C-S-Tab> gT
-" Go to the buffer above ,k
-nmap <leader>k <C-W>k
-" Go to the buffer below ,j
-nmap <leader>j <C-W>j
-" Go to the right buffer ,h
-nmap <leader>h <C-W>h
-" Go to the left buffer ,l
-nmap <leader>l <C-W>l
+" Go to the buffer above <alt-k>
+nmap <A-k> <C-W>k
+" Go to the buffer below <alt-j>
+nmap <A-j> <C-W>j
+" Go to the right buffer <alt-h>
+nmap <A-h> <C-W>h
+" Go to the left buffer <alt-l>
+nmap <A-l> <C-W>l
 
 " Create/edit file in the current directory
 nmap :ed :edit %:p:h/
@@ -159,6 +165,7 @@ set wildignore+=*/vendor/**
 
 " NERDTree
 nmap <A-1> :NERDTreeToggle<cr>
+nmap <leader>f :NERDTreeFind<cr>
 
 " Vim Multiple Cursors
 let g:multi_cursor_use_default_mapping=0
@@ -169,6 +176,33 @@ let g:multi_cursor_quit_key='<Esc>'
 
 " Air-line
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
 
-" Ctrlspace
+" CtrlSpace
 let g:airline#extensions#ctrlspace#enabled = 1
+let g:CtrlSpaceLoadLastWorkspaceOnStart = 1
+let g:CtrlSpaceSaveWorkspaceOnSwitch = 1
+let g:CtrlSpaceSaveWorkspaceOnExit = 1
+" Open fuzzy search for files
+nmap <C-S-n> :CtrlSpace O<CR>
+
+" Tagbar
+nmap <A-2> :TagbarToggle<cr>
+
+" GitGutter
+" let g:gitgutter_highlight_lines = 1
+
+" Php Namespace
+function! IPhpInsertUse()
+    call PhpInsertUse()
+    call feedkeys('a',  'n')
+endfunction
+autocmd FileType php inoremap <leader>u <Esc>:call IPhpInsertUse()<CR>
+autocmd FileType php noremap <leader>u :call PhpInsertUse()<CR>
+
+function! IPhpExpandClass()
+    call PhpExpandClass()
+    call feedkeys('a', 'n')
+endfunction
+autocmd FileType php inoremap <Leader>e <Esc>:call IPhpExpandClass()<CR>
+autocmd FileType php noremap <Leader>e :call PhpExpandClass()<CR>

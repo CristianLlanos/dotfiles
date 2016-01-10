@@ -37,6 +37,11 @@ Plugin 'tpope/vim-surround'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'bling/vim-airline'
 Plugin 'vim-ctrlspace/vim-ctrlspace'
+Plugin 'majutsushi/tagbar'
+Plugin 'arnaud-lb/vim-php-namespace'
+Plugin 'craigemery/vim-autotag'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'tpope/vim-fugitive'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
