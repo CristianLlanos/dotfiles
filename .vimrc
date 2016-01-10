@@ -1,87 +1,174 @@
-version 6.0
-if &cp | set nocp | endif
-let s:cpo_save=&cpo
-set cpo&vim
-nmap gx <Plug>NetrwBrowseX
-nnoremap <silent> <Plug>NetrwBrowseX :call netrw#NetrwBrowseX(expand("<cWORD>"),0)
+set nocompatible
+set hidden
+set t_Co=256
 
-" abrir nueva pestaña con <CTRL-P>
-map <C-P> :tabnew<Enter>
-" abrir ventana horizontal con <CTRL-N>
-map <C-N> <C-W>n
-" abrir ventana vertical con <CTRL-N>n
-map <C-N>n :vsp<Enter>
-" cerrar ventana con <CTRL-C>
-map <C-C> <C-W>c
-" ir a la ventana de arriba con <CTRL-K>
-map <C-K> <C-W>k
-" ir a la ventana de abajo con <CTRL-J>
-map <C-J> <C-W>j
-" ir a la ventana de la derecha con <CTRL-H>
-map <C-H> <C-W>h
-" ir a la ventana de la izquierda con <CTRL-L>
-map <C-L> <C-W>l
-" cambiar a pestaña izquierda con <SHIFT-H>
-map <S-H> gT
-" cambiar a pestaña derecha con <SHIFT-L>
-map <S-L> gt
+if filereadable(expand("$HOME/plugins.vimrc"))
+    source $HOME/plugins.vimrc
+endif
 
-" tecla de borrado para novatos
-set backspace=indent,eol,start
-" espacios entre líneas
-" set linespace=10
-
-set fileencodings=ucs-bom,utf-8,default,latin1
-set helplang=en
+" Use unicode glyphs
+set encoding=utf-8
+" Elements to keep in history
 set history=1000
 
-" habilita el uso del mouse
-set mouse=a
-" oculta el mouse mientras se escribe
+" Color scheme name (peacocks-in-space)
+colorscheme material-theme
+" Background (light, dark)
+set background=dark
+" Use font
+set guifont=Droid\ Sans\ Mono\ for\ Powerline
+" Removes menu from top
+set go-=m
+" Removes toolbar from top
+set go-=T
+" Removes rigth hand scrollbar
+set go-=r
+" Removes left hand scrollbar
+set go-=L
+" Do not show tabs
+" set showtabline=0
 
-" ignora la capitalización de las letras al momento de buscar
-set ignorecase
-" resalta los resultados de la búsqueda
-set hlsearch
-" muestra resultados conforme se tipea
-" 'inner sentence'
-set is
+" Do not wrap text
+set nowrap
+" Spaces between lines
+set linespace=16
+" Enables backspace to erase text
+set backspace=indent,eol,start
 
-" muestra la barra de estado
-" set laststatus=2
+" Tabs legth
+set tabstop=4
+" Allows backspace key to erase tabs
+set softtabstop=4
+" Tabs lenght when indenting with '<' and '>'
+set shiftwidth=4
+" Use multiple shiftwidth when indenting with '<' and '>'
+set shiftround
+" Use spaces for tabs
+set expandtab
+" Enables autoindentation
+set autoindent
+" Copy the previous indentation when autoindenting
+set copyindent
 
-" muestra una lista en lugar de autocompletar
-set wildmenu
-
-set nomodeline
-
-" mostrar números de líneas
-" set number
-" muestra la pocisión del cursor y su ubicación en porcentaje
+" Show line numbers
+set number
+" Show line, column and position percentage in status line
 set ruler
 
-" evita crear una copia de respaldo cada vez que abre un archivo
+" Enables mouse interaction when using vim in terminal
+set mouse=a
+
+" Ignore case when searching
+set ignorecase
+" Highlight search results
+set hlsearch
+" Show results while typing ('inner sentence')
+set is
+" Remove search results
+command! H let @/=""
+
+" Show status bar
+set laststatus=2
+
+" Show a list instead of autocompletion
+set wildmenu
+
+" Do not use modeline (vim per file configuration)
+set nomodeline
+
+" Do not creat backup files
 set nobackup
+" Backup directory
+" set backupdir=~/.vim/backup//
+" Swap files directory
+" set directory=~/.vim/swap//
 
-" evitar que el texto pase a la siguiente línea
-set nowrap
+" Allways show what mode you are in
+set showmode
 
-" esquema de colores
-color desert
-" tipo de fondo
-set background=dark
+" Don't beep
+set visualbell
+set noerrorbells
 
-" longitud del tabulador
-set tabstop=4
-" permite al backspace borrar la sangría
-set softtabstop=4
-" longitud de la tabulación <shitf><</>>
-set shiftwidth=4
-" convierte la tabulación en esepacios
-set expandtab
-" auto-sangría
-set autoindent
 
-set runtimepath=~/.vim,/var/lib/vim/addons,/usr/share/vim/vimfiles,/usr/share/vim/vim74,/usr/share/vim/vimfiles/after,/var/lib/vim/addons/after,~/.vim/after
-set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
-" vim: set ft=vim :
+
+" With a map leader it's possible to do extra key conbinations
+" like <leader>w saves the current file
+let mapleader = ","
+let g:mapleader = ","
+
+" Fast saves ,w
+nmap <leader>w :w!<cr>
+" Close current buffer ,q
+nmap <leader>q <C-W>c
+
+" Use jj to escape from insert mode to normal mode
+imap jj <esc>
+
+" Down is really the next line
+nnoremap j gj
+" Up is really the previous line
+nnoremap k gk
+" Autochange directory to match the current file ,cd
+" nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
+
+
+" Splits
+nmap vs :vs<cr>
+nmap sp :sp<cr>
+
+" Resize vsplit
+nmap <C-l> :vertical resize +5<cr>
+nmap 25 :vertical resize 40<cr>
+nmap 50 <c-w>=
+nmap 75 :vertical resize 120<cr>
+
+" Quickly go forwards and backwards through buffers (tabs)
+nmap :bb :BufSurfBack<cr>
+nmap :bf :BufSurfForward<cr>
+
+" Open a new tab with <CTRL-t>
+nmap <C-t> :tabnew<Enter>
+" Navigate to the right tab <ctrl-tab>
+nmap <C-Tab> gt
+" Navigate to the left tab <ctrl-shif-tab>
+nmap <C-S-Tab> gT
+" Go to the buffer above ,k
+nmap <leader>k <C-W>k
+" Go to the buffer below ,j
+nmap <leader>j <C-W>j
+" Go to the right buffer ,h
+nmap <leader>h <C-W>h
+" Go to the left buffer ,l
+nmap <leader>l <C-W>l
+
+" Create/edit file in the current directory
+nmap :ed :edit %:p:h/
+
+
+" PHPUnit
+nmap <leader>t :!phpunit
+
+
+
+" CtrlP
+nmap <C-p> :CtrlP<cr>
+nmap <C-r> :CtrlPBufTag<cr>
+" Don't show these files/folders when using CtrlP
+set wildignore+=*/vendor/**
+
+" NERDTree
+nmap <A-1> :NERDTreeToggle<cr>
+
+" Vim Multiple Cursors
+let g:multi_cursor_use_default_mapping=0
+let g:multi_cursor_next_key='<C-d>'
+let g:multi_cursor_prev_key='<C-b>'
+let g:multi_cursor_skip_key='<C-x>'
+let g:multi_cursor_quit_key='<Esc>'
+
+" Air-line
+let g:airline_powerline_fonts = 1
+
+" Ctrlspace
+let g:airline#extensions#ctrlspace#enabled = 1
