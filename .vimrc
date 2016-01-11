@@ -74,6 +74,8 @@ set laststatus=2
 
 " Show a list instead of autocompletion
 set wildmenu
+" Don't show these files/folders when using autocompletion
+set wildignore+=*/vendor/**
 
 " Do not use modeline (vim per file configuration)
 set nomodeline
@@ -100,10 +102,10 @@ let mapleader = ","
 let g:mapleader = ","
 
 " Fast saves ,w
-nmap <leader>w :w!<cr>
+nmap <leader>w :w!<CR>
 " Close current buffer ,q
 nmap <leader>q <C-W>c
-" nmap <leader>q :q!<cr>
+" nmap <leader>q :q!<CR>
 
 " Browse pages
 nmap <Space> <PageDown>
@@ -120,18 +122,18 @@ nnoremap k gk
 
 
 " Splits
-nmap vs :vs<cr>
-nmap sp :sp<cr>
+nmap vs :vs<CR>
+nmap sp :sp<CR>
 
 " Resize vsplit
-nmap <C-l> :vertical resize +5<cr>
-nmap 25 :vertical resize 40<cr>
+nmap <C-l> :vertical resize +5<CR>
+nmap 25 :vertical resize 40<CR>
 nmap 50 <c-w>=
-nmap 75 :vertical resize 120<cr>
+nmap 75 :vertical resize 120<CR>
 
 " Quickly go forwards and backwards through buffers (tabs)
-nmap :bb :BufSurfBack<cr>
-nmap :bf :BufSurfForward<cr>
+nmap :bb :BufSurfBack<CR>
+nmap :bf :BufSurfForward<CR>
 
 " Open a new tab with <CTRL-t>
 nmap <C-t> :tabnew<Enter>
@@ -147,6 +149,11 @@ nmap <A-j> <C-W>j
 nmap <A-h> <C-W>h
 " Go to the left buffer <alt-l>
 nmap <A-l> <C-W>l
+" Show buffer list and select one to open
+nnoremap <F5> :buffers<CR>:buffer<Space>
+" Use wildmenu to filter buffers
+set wildcharm=<C-Z>
+nnoremap <F10> :b <C-Z>
 
 " Create/edit file in the current directory
 nmap :ed :edit %:p:h/
@@ -158,14 +165,12 @@ nmap <leader>t :!phpunit
 
 
 " CtrlP
-nmap <C-p> :CtrlP<cr>
-nmap <C-r> :CtrlPBufTag<cr>
-" Don't show these files/folders when using CtrlP
-set wildignore+=*/vendor/**
+nmap <C-p> :CtrlP<CR>
+nmap <C-r> :CtrlPBufTag<CR>
 
 " NERDTree
-nmap <A-1> :NERDTreeToggle<cr>
-nmap <leader>f :NERDTreeFind<cr>
+nmap <A-1> :NERDTreeToggle<CR>
+nmap <leader>f :NERDTreeFind<CR>
 
 " Vim Multiple Cursors
 let g:multi_cursor_use_default_mapping=0
@@ -185,12 +190,18 @@ let g:CtrlSpaceSaveWorkspaceOnSwitch = 1
 let g:CtrlSpaceSaveWorkspaceOnExit = 1
 " Open fuzzy search for files
 nmap <C-S-n> :CtrlSpace O<CR>
+nmap <C-CR> :CtrlSpace h<CR><S-p>
 
 " Tagbar
-nmap <A-2> :TagbarToggle<cr>
+nmap <A-2> :TagbarToggle<CR>
 
 " GitGutter
 " let g:gitgutter_highlight_lines = 1
+
+" FuzzyFinder
+nmap :ff :FufFileWithCurrentBufferDir<CR>
+nmap :fb :FufBuffer<CR>
+nmap :ft :FufTaggedFile<CR>
 
 " Php Namespace
 function! IPhpInsertUse()

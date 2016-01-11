@@ -16,7 +16,7 @@ Plugin 'VundleVim/Vundle.vim'
 " plugin on GitHub repo
 "Plugin 'tpope/vim-fugitive'
 " plugin from http://vim-scripts.org/vim/scripts.html
-"Plugin 'L9'
+Plugin 'L9'
 " Git plugin not hosted on GitHub
 "Plugin 'git://git.wincent.com/command-t.git'
 " git repos on your local machine (i.e. when working on your own plugin)
@@ -42,6 +42,17 @@ Plugin 'arnaud-lb/vim-php-namespace'
 Plugin 'craigemery/vim-autotag'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
+"---------------------------------------
+" SnipMate dependencies
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+Plugin 'honza/vim-snippets'
+"--------------------------------------
+Plugin 'easymotion/vim-easymotion'
+Plugin 'ton/vim-bufsurf'
+Plugin 'tomtom/tcomment_vim'
+Plugin 'FuzzyFinder'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
