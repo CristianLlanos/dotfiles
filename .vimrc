@@ -36,6 +36,10 @@ set nowrap
 set linespace=16
 " Enables backspace to erase text
 set backspace=indent,eol,start
+" Highlight whitespaces, tabs.
+set list
+" set listchars=tab:»·,trail:·,extends:#,nbsp:·,space:·
+set listchars=tab:»·,trail:·,extends:#,nbsp:·
 
 " Tabs legth
 set tabstop=4
@@ -87,6 +91,9 @@ set nobackup
 " Swap files directory
 " set directory=~/.vim/swap//
 
+" Do not use swap files
+set noswapfile
+
 " Allways show what mode you are in
 set showmode
 
@@ -109,6 +116,17 @@ nmap <leader>q <C-W>c
 
 " Browse pages
 nmap <Space> <PageDown>
+
+" Copy to clipboard
+vnoremap y "+y
+nnoremap yy 0"+y$
+" Paste from clipboard
+nnoremap p a<ESC>"+p
+
+" Open up Vim configuration file
+nmap :ov :tabe $MYVIMRC<CR>
+" Update (source) Vim configuration (after .vimrc was changed)
+nmap :sv :source $MYVIMRC<CR>
 
 " Use jj to escape from insert mode to normal mode
 imap jj <esc>
