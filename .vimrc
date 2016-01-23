@@ -1,4 +1,5 @@
 set nocompatible
+syntax on
 set hidden
 set t_Co=256
 
