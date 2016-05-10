@@ -15,11 +15,15 @@ set history=1000
 set showcmd
 
 " Color scheme name (peacocks-in-space)
-colorscheme material-theme
+" colorscheme material-theme
+" colorscheme base16-solarized
+colorscheme base16-monokai
 " Background (light, dark)
 set background=dark
 " Use font
-set guifont=Droid\ Sans\ Mono\ for\ Powerline
+" set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 10
+" set guifont=Ubuntu\ Mono\ 11
+set guifont=Input\ 10
 " Removes menu from top
 set go-=m
 " Removes toolbar from top
@@ -28,8 +32,19 @@ set go-=T
 set go-=r
 " Removes left hand scrollbar
 set go-=L
-" Do not show tabs
-" set showtabline=0
+" Remove GUI tabs
+set go-=e
+" Allways show tabs
+set showtabline=2
+" Tab lables: file name
+set guitablabel=%f
+
+"-----------------------------------Splits----------------------------------"
+
+" Send splits bellow
+set splitbelow
+" Send splits to the right
+set splitright
 
 " Do not wrap text
 set nowrap
@@ -71,8 +86,6 @@ set ignorecase
 set hlsearch
 " Show results while typing ('inner sentence')
 set is
-" Remove search results
-command! H let @/=""
 
 " Show status bar
 set laststatus=2
@@ -80,7 +93,9 @@ set laststatus=2
 " Show a list instead of autocompletion
 set wildmenu
 " Don't show these files/folders when using autocompletion
-set wildignore+=*/vendor/**
+" set wildignore+=*/vendor/**
+" set wildignore-=*/vendor/laravel/**
+" set wildignore-=*/vendor/papaya/**
 
 " Do not use modeline (vim per file configuration)
 set nomodeline
@@ -99,8 +114,7 @@ set noswapfile
 set showmode
 
 " Don't beep
-set visualbell
-set noerrorbells
+set noerrorbells visualbell t_vb=
 
 
 
@@ -119,10 +133,10 @@ nmap <leader>q <C-W>c
 nmap <Space> <PageDown>
 
 " Copy to clipboard
-vnoremap y "+y
-nnoremap yy 0"+y$
+" vnoremap y "*y
+" nnoremap yy 0"*y$
 " Paste from clipboard
-nnoremap p a<ESC>"+p
+" nnoremap p a<ESC>"*p
 
 " Open up Vim configuration file
 nmap :ov :tabe $MYVIMRC<CR>
@@ -150,10 +164,6 @@ nmap 25 :vertical resize 40<CR>
 nmap 50 <c-w>=
 nmap 75 :vertical resize 120<CR>
 
-" Quickly go forwards and backwards through buffers (tabs)
-nmap :bb :BufSurfBack<CR>
-nmap :bf :BufSurfForward<CR>
-
 " Open a new tab with <CTRL-t>
 nmap <C-t> :tabnew<Enter>
 " Navigate to the right tab <ctrl-tab>
@@ -172,7 +182,7 @@ nmap <A-l> <C-W>l
 nnoremap <F5> :buffers<CR>:buffer<Space>
 " Use wildmenu to filter buffers
 set wildcharm=<C-Z>
-nnoremap <F10> :b <C-Z>
+nnoremap <F11> :b <C-Z>
 
 " Create/edit file in the current directory
 nmap :ed :edit %:p:h/
@@ -191,16 +201,21 @@ nmap <C-r> :CtrlPBufTag<CR>
 nmap <A-1> :NERDTreeToggle<CR>
 nmap <leader>f :NERDTreeFind<CR>
 
+" EasyAlign
+vmap <Enter> <Plug>(EasyAlign)=<cr>
+
 " Vim Multiple Cursors
 let g:multi_cursor_use_default_mapping=0
 let g:multi_cursor_next_key='<C-d>'
-let g:multi_cursor_prev_key='<C-b>'
-let g:multi_cursor_skip_key='<C-x>'
+let g:multi_cursor_prev_key='<S-d>'
+let g:multi_cursor_skip_key='<Space>'
 let g:multi_cursor_quit_key='<Esc>'
 
 " Air-line
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_buffers = 0
+let g:airline#extensions#show_buffers = 0
 
 " CtrlSpace
 let g:airline#extensions#ctrlspace#enabled = 1
