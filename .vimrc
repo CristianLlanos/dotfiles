@@ -15,9 +15,9 @@ set history=1000
 set showcmd
 
 " Color scheme name (peacocks-in-space)
-" colorscheme material-theme
+colorscheme material-theme
 " colorscheme base16-solarized
-colorscheme base16-monokai
+" colorscheme base16-monokai
 " Background (light, dark)
 set background=dark
 " Use font
@@ -190,52 +190,6 @@ nmap :ed :edit %:p:h/
 
 " PHPUnit
 nmap <leader>t :!phpunit
-
-
-
-" CtrlP
-nmap <C-p> :CtrlP<CR>
-nmap <C-r> :CtrlPBufTag<CR>
-
-" NERDTree
-nmap <A-1> :NERDTreeToggle<CR>
-nmap <leader>f :NERDTreeFind<CR>
-
-" EasyAlign
-vmap <Enter> <Plug>(EasyAlign)=<cr>
-
-" Vim Multiple Cursors
-let g:multi_cursor_use_default_mapping=0
-let g:multi_cursor_next_key='<C-d>'
-let g:multi_cursor_prev_key='<S-d>'
-let g:multi_cursor_skip_key='<Space>'
-let g:multi_cursor_quit_key='<Esc>'
-
-" Air-line
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#show_buffers = 0
-let g:airline#extensions#show_buffers = 0
-
-" CtrlSpace
-let g:airline#extensions#ctrlspace#enabled = 1
-let g:CtrlSpaceLoadLastWorkspaceOnStart = 1
-let g:CtrlSpaceSaveWorkspaceOnSwitch = 1
-let g:CtrlSpaceSaveWorkspaceOnExit = 1
-" Open fuzzy search for files
-nmap <C-S-n> :CtrlSpace O<CR>
-nmap <C-CR> :CtrlSpace h<CR><S-p>
-
-" Tagbar
-nmap <A-2> :TagbarToggle<CR>
-
-" GitGutter
-" let g:gitgutter_highlight_lines = 1
-
-" FuzzyFinder
-nmap :ff :FufFileWithCurrentBufferDir<CR>
-nmap :fb :FufBuffer<CR>
-nmap :ft :FufTaggedFile<CR>
 
 " Php Namespace
 function! IPhpInsertUse()
