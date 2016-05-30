@@ -1,0 +1,82 @@
+[user]
+	name = Cristian Llanos
+	email = cristian@cinepapaya.com
+[core]
+	editor = /usr/local/bin/vim
+	excludesfile = /home/cristian/.gitignore-global
+[alias]
+	# Aliases
+	aliases = "!git config --list | grep alias | cut -c 7-"
+	
+	# Status
+	s = status
+	ss = status --short --branch
+	
+	# Commit
+	cm = commit -m
+	cma = commit -am
+	cmall = !git add -A && git commit -m
+	## Amend and add modifications
+	amend = commit -a --amend
+	## Savepoint
+	save = !git add -A && git commit -m "SAVEPOINT"
+	## Work in progress
+	wip = commit -am "WIP"
+	
+	# Undoing things
+	## Resets the previous commit, but keeps all the changes in the working directory
+	undo = reset HEAD~1 --mixed
+	## Creates and removes that commit. Reachabled through git reflog
+	wipe = !git add -A && git commit -qm 'WIPE SAVEPOINT' && git reset HEAD~1 --hard
+	
+	# Checkout
+	co = checkout
+	cob = checkout -b
+	com = checkout master
+	
+	# Pull
+	plo = pull origin
+	plom = pull origin master
+	# Pull and rebase local commits after the pulled ones
+	up = !git pull --rebase --prune $@ && git submodule update --init --recursive
+	new = !sh -c 'git log $1@{1}..$1@{0} "$@"'
+	
+	# Push
+	pso = push origin
+	psom = push origin master
+	
+	# Feth
+	fo = fetch origin
+	fom = fetch origin master
+	
+	# Diff
+	d = diff
+	ds = diff --stat
+	dc = diff --cached
+	
+	# Log
+	ll = log --graph --abbrev --pretty=format:'%Cred%h%Creset - %Cgreen(%cr) %C(bold blue)<%an>%C(yellow)%d%Creset %s%Creset'
+	ls = log --graph --abbrev --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --numstat
+	logx = log --all --graph --decorate=short --color --format=format:'%C(bold blue)%h%C(reset) / %C(bold yellow)%an%C(reset)%C(reset): %s%C(reset)\n        \\_ %C(dim green)(%cr)%C(reset)%C(auto)%d%C(reset)'
+	logs = log --all --graph --decorate=short --color --format=format:'%C(bold blue)%h%C(reset) / %C(bold yellow)%an%C(reset)%C(reset): %s%C(reset)\n        \\_ %C(dim green)(%cr)%C(reset)%C(auto)%d%C(reset)' --numstat
+	
+	# conflict/merges
+	ours = "!f() { git co --ours $@ && git add $@; }; f"
+	theirs = "!f() { git co --theirs $@ && git add $@; }; f"
+	
+	# List remotes
+	rem = !git config -l | grep remote.*url | cut -c 8-
+	
+	# Open last files edited in GVim
+	last = "!gvim $(git show HEAD --format="" --name-only | xargs)"
+	lastlist = show HEAD --format="" --name-only
+	
+	# Branches
+	## list branches sorted by last modified
+	b = "!git for-each-ref --sort='-authordate' --format='%(authordate:short) | %(objectname:short) | %1B[0;31m%(refname)%1B[m' refs/heads | sed -e 's-refs/heads/--'"
+	# Show branches and their tracking counterparts
+	br = branch --all --verbose
+	## Does the cleanup of merged branches
+	bclean = "!f() { git branch --merged ${1-master} | grep -v " ${1-master}$" | xargs -r git branch -d; }; f"
+	## Deletes all branches already merged into master
+	bdone = "!f() { git checkout ${1-master} && git up && git bclean ${1-master}; }; f"
