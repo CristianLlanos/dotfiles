@@ -13,11 +13,12 @@ set encoding=utf-8
 set history=1000
 " See commands as they are typed
 set showcmd
+" Shell
+set shell=/bin/bash
 
 " Color scheme name (peacocks-in-space)
 " colorscheme material-theme
-" colorscheme base16-solarized
-colorscheme base16-monokai
+color PaperColor
 " Background (light, dark)
 set background=dark
 " Use font
@@ -96,6 +97,8 @@ set wildmenu
 " set wildignore+=*/vendor/**
 " set wildignore-=*/vendor/laravel/**
 " set wildignore-=*/vendor/papaya/**
+
+set tags=./tags;/
 
 " Do not use modeline (vim per file configuration)
 set nomodeline
@@ -178,14 +181,18 @@ nmap <A-j> <C-W>j
 nmap <A-h> <C-W>h
 " Go to the left buffer <alt-l>
 nmap <A-l> <C-W>l
+
 " Show buffer list and select one to open
 nnoremap <F5> :buffers<CR>:buffer<Space>
+
 " Use wildmenu to filter buffers
 set wildcharm=<C-Z>
 nnoremap <F11> :b <C-Z>
 
 " Create/edit file in the current directory
 nmap :ed :edit %:p:h/
+" Change window working directory
+nmap ,cd :lcd %:p:h<CR>
 
 
 " PHPUnit
@@ -198,8 +205,10 @@ nmap <C-p> :CtrlP<CR>
 nmap <C-r> :CtrlPBufTag<CR>
 
 " NERDTree
-nmap <A-1> :NERDTreeToggle<CR>
-nmap <leader>f :NERDTreeFind<CR>
+" nmap <A-1> :NERDTreeToggle<CR>
+" nmap <leader>f :NERDTreeFind<CR>
+nmap <A-1> :NERDTreeFind<CR>
+let NERDTreeQuitOnOpen=1
 
 " EasyAlign
 vmap <Enter> <Plug>(EasyAlign)=<cr>
@@ -228,6 +237,8 @@ nmap <C-CR> :CtrlSpace h<CR><S-p>
 
 " Tagbar
 nmap <A-2> :TagbarToggle<CR>
+let g:tagbar_autofocus=1
+let g:tagbar_autoclose=1
 
 " GitGutter
 " let g:gitgutter_highlight_lines = 1
@@ -237,7 +248,7 @@ nmap :ff :FufFileWithCurrentBufferDir<CR>
 nmap :fb :FufBuffer<CR>
 nmap :ft :FufTaggedFile<CR>
 
-" Php Namespace
+" Php import class
 function! IPhpInsertUse()
     call PhpInsertUse()
     call feedkeys('a',  'n')
@@ -245,6 +256,7 @@ endfunction
 autocmd FileType php inoremap <leader>u <Esc>:call IPhpInsertUse()<CR>
 autocmd FileType php noremap <leader>u :call PhpInsertUse()<CR>
 
+" Php expand full class name
 function! IPhpExpandClass()
     call PhpExpandClass()
     call feedkeys('a', 'n')

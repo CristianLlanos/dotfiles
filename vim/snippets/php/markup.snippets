@@ -1,0 +1,25 @@
+snippet php
+	<?php ${1}; ?>
+
+snippet echo
+	<?php echo ${1}; ?>
+
+snippet if
+	<?php if (${1}): ?>
+	    ${2}
+	<?php endif; ?>
+
+snippet endif
+	<?php endif; ?>${1}
+
+snippet else
+	<?php else: ?>${1}
+
+snippet foreach
+	<?php foreach ($${1} as $${2}): /** @var ${3} */ ?>
+	    ${4}
+	<?php endforeach; ?>
+
+snippet endforeach
+	<?php endforeach; ?>
+
