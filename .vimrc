@@ -58,7 +58,8 @@ set backspace=indent,eol,start
 " Highlight whitespaces, tabs.
 set list
 " set listchars=tab:»·,trail:·,extends:#,nbsp:·,space:·
-set listchars=tab:»·,trail:·,extends:#,nbsp:·
+" set listchars=tab:»·,trail:·,extends:#,nbsp:·
+set listchars=tab:⁍ ,trail:•,extends:#,nbsp:•
 
 " Tabs legth
 set tabstop=4

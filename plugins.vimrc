@@ -53,7 +53,7 @@ Plugin 'easymotion/vim-easymotion'
 Plugin 'ton/vim-bufsurf'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'FuzzyFinder'
-
+Plugin 'NLKNguyen/papercolor-theme'
 Plugin 'posva/vim-vue'
 
 " All of your Plugins must be added before the following line
