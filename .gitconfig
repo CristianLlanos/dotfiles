@@ -33,6 +33,7 @@
 	co = checkout
 	cob = checkout -b
 	com = checkout master
+    fuck = !git co -f && git clean -df
 	
 	# Pull
 	plo = pull origin
@@ -68,8 +69,7 @@
 	rem = !git config -l | grep remote.*url | cut -c 8-
 	
 	# Open last files edited in GVim
-	last = "!gvim $(git show HEAD --format="" --name-only | xargs)"
-	lastlist = show HEAD --format="" --name-only
+	last = show HEAD --format="" --name-only
 	
 	# Branches
 	## list branches sorted by last modified
