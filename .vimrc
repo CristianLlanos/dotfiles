@@ -194,7 +194,7 @@ nnoremap <F11> :b <C-Z>
 " Create/edit file in the current directory
 nmap :ed :edit %:p:h/
 " Change window working directory
-nmap ,cd :lcd %:p:h<CR>
+nmap ,cd :cd %:p:h<CR>
 
 
 " PHPUnit

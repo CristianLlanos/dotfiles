@@ -78,11 +78,16 @@ filetype plugin indent on    " required
 " CtrlP
 nmap <C-p> :CtrlP<CR>
 nmap <C-r> :CtrlPBufTag<CR>
+let g:ctrlp_mruf_relative = 1
+let g:ctrlp_working_path_mode = 'ra'
+" let g:ctrlp_max_files = 8000
+" let g:ctrlp_max_depth = 100
 
 " NERDTree
 " nmap <A-1> :NERDTreeToggle<CR>
 " nmap <leader>f :NERDTreeFind<CR>
 nmap <A-1> :NERDTreeFind<CR>
+let NERDTreeMapQuit='<A-1>'
 let NERDTreeQuitOnOpen=1
 
 " EasyAlign
@@ -116,7 +121,7 @@ let g:tagbar_autofocus=1
 let g:tagbar_autoclose=1
 
 " GitGutter
-" let g:gitgutter_highlight_lines = 1
+let g:gitgutter_highlight_lines = 1
 
 " FuzzyFinder
 nmap :ff :FufFileWithCurrentBufferDir<CR>
