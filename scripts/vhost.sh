@@ -12,7 +12,7 @@ PUBLIC=$(pwd)/public
 DOMAIN=${1:-"vh"}
 
 if [ ! -d ${PUBLIC} ]; then
-    echo "This project does not have a [./public] directory to use a document root"
+    echo "This project does not have a [./public] directory to use as document root"
     exit 1
 fi
 
