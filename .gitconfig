@@ -22,6 +22,8 @@
 	save = !git add -A && git commit -m "SAVEPOINT"
 	## Work in progress
 	wip = commit -am "WIP"
+    ## Count commints
+    count = rev-list --all --count
 	
 	# Undoing things
 	## Resets the previous commit, but keeps all the changes in the working directory
