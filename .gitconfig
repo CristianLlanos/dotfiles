@@ -6,7 +6,7 @@
 	excludesfile = /home/cristian/.gitignore-global
 [alias]
 	# Aliases
-	aliases = "!git config --list | grep alias | cut -c 7-"
+	aliases = "!git config --list | grep alias | cut -c 7- | less"
 	
 	# Status
 	s = status
