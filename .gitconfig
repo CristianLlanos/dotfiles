@@ -9,8 +9,8 @@
 	aliases = "!git config --list | grep alias | cut -c 7- | less"
 	
 	# Status
-	s = status
-	ss = status --short --branch
+	s = status --untracked-files=all
+    ss = status --short --branch --untracked-files=all
 	
 	# Commit
 	cm = commit -m
