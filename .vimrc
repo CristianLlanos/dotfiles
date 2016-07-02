@@ -26,7 +26,7 @@ set background=dark
 " Use font
 " set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 10
 " set guifont=Ubuntu\ Mono\ 11
-set guifont=Input\ 10
+set guifont=Input\ 11
 " Removes menu from top
 set go-=m
 " Removes toolbar from top
