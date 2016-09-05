@@ -17,12 +17,12 @@ then
 fi
 
 NAME=$(basename "$PWD")
-VHOST=${NAME}.vh.conf
+VHOST=${NAME}.vh
 ENV_KEY="$1"
 ENV_VALUE="$2"
 
-FILE="/etc/apache2/sites-available/${VHOST}"
+FILE="/etc/apache2/sites-available/${VHOST}.conf"
 
 sed -i "s/<\/VirtualHost>/    SetEnv ${ENV_KEY} ${ENV_VALUE}\n<\/VirtualHost>/" $FILE
 service apache2 reload
-echo ">> [${ENV_KEY}] is now available on ${VHOST}."
+echo ">> [${ENV_KEY}] with value [${ENV_VALUE}] is now available on [http://${VHOST}]."
