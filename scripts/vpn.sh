@@ -1,7 +1,7 @@
 #!/bin/bash
 #=============================================================================#
 # Title       : vpn.sh
-# Description : Registers an Apache2 Virtual Host.
+# Description : Stablishes connection to a VPN
 # Author      : Cristian Llanos <cristianllanos@outlook.com>
 # Date        : 2016-09-09T18:40:00Z-05:00
 # Usage       : vpn [connection]
