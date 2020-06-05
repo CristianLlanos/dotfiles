@@ -5,26 +5,6 @@
 [core]
 	editor = /usr/local/bin/vim
 	excludesfile = /home/cristian/.gitignore_global
-# [color]
-# 	ui = auto
-
-# [color "branch"]
-# 	current = green bold
-# 	local = white
-# 	remote = white dim
-
-# [color "diff"]
-#     # meta = magenta black reverse
-#     meta = magenta bold
-# 	frag = yellow bold
-# 	old = red bold
-# 	new = green bold
-# 	whitespace = red reverse
-
-# [color "status"]
-# 	added = green bold
-# 	changed = red bold
-# 	untracked = yellow bold
 [color]
   pager = true
   ui = auto
