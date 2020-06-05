@@ -16,4 +16,5 @@ then
     exit
 fi
 
-openvpn --config ~/vpn/${1}.ovpn
+cd ~/vpn
+openvpn --config ${1}.ovpn
