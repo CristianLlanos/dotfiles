@@ -26,7 +26,7 @@ set background=dark
 " Use font
 " set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 10
 " set guifont=Ubuntu\ Mono\ 11
-set guifont=Input\ 11
+set guifont=Input\ 10
 " Removes menu from top
 set go-=m
 " Removes toolbar from top
@@ -157,7 +157,7 @@ nnoremap j gj
 " Up is really the previous line
 nnoremap k gk
 " Autochange directory to match the current file ,cd
-" nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
+nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
 
 
 " Splits
@@ -194,9 +194,6 @@ nnoremap <F11> :b <C-Z>
 
 " Create/edit file in the current directory
 nmap :ed :edit %:p:h/
-" Change window working directory
-nmap ,cd :cd %:p:h<CR>
-
 
 " PHPUnit
 nmap <leader>t :!phpunit

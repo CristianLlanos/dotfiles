@@ -27,9 +27,9 @@ Plugin 'L9'
 " Avoid a name conflict with L9
 "Plugin 'user/L9', {'name': 'newL9'}
 
-Bundle "daylerees/colour-schemes", {"rtp": "vim/"}
-Plugin 'chriskempson/base16-vim'
-Plugin 'jdkanani/vim-material-theme'
+" Bundle 'daylerees/colour-schemes', {'rtp': 'vim/'}
+" Plugin 'chriskempson/base16-vim'
+" Plugin 'jdkanani/vim-material-theme'
 Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdTree'
 Plugin 'terryma/vim-multiple-cursors'
@@ -55,6 +55,12 @@ Plugin 'tomtom/tcomment_vim'
 Plugin 'FuzzyFinder'
 Plugin 'NLKNguyen/papercolor-theme'
 Plugin 'posva/vim-vue'
+Plugin 'pangloss/vim-javascript'
+Plugin 'StanAngeloff/php.vim'
+Plugin 'ncm2/ncm2'
+" Plugin 'phpactor/phpactor'
+" Plugin 'phpactor/ncm2-phpactor'
+Plugin 'neomake/neomake'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -75,19 +81,30 @@ filetype plugin indent on    " required
 " Configurations
 "-----------------------------------------------------------------------
 
+" PaperColor
+let g:PaperColor_Theme_Options = {
+    \  'theme': {
+    \    'default': {
+    \      'transparent_background': 0
+    \    }
+    \  }
+    \}
+
 " CtrlP
-nmap <C-p> :CtrlP<CR>
-nmap <C-r> :CtrlPBufTag<CR>
+nmap <C-o> :CtrlP<CR>
+nmap <C-i> :CtrlPBufTag<CR>
+nmap <C-p> :CtrlPBuffer<CR>
 let g:ctrlp_mruf_relative = 1
 let g:ctrlp_working_path_mode = 'ra'
-" let g:ctrlp_max_files = 8000
-" let g:ctrlp_max_depth = 100
+let g:ctrlp_max_files = 8000
+let g:ctrlp_max_depth = 100
 
 " NERDTree
 " nmap <A-1> :NERDTreeToggle<CR>
-" nmap <leader>f :NERDTreeFind<CR>
-nmap <A-1> :NERDTreeFind<CR>
-let NERDTreeMapQuit='<A-1>'
+nmap <C-n> :NERDTreeToggle<CR>
+nmap <leader>f :NERDTreeFind<CR>
+" nmap <C-n> :NERDTreeFind<CR>
+" let NERDTreeMapQuit='<C-n>'
 let NERDTreeQuitOnOpen=1
 
 " EasyAlign
@@ -112,11 +129,11 @@ let g:CtrlSpaceLoadLastWorkspaceOnStart = 1
 let g:CtrlSpaceSaveWorkspaceOnSwitch = 1
 let g:CtrlSpaceSaveWorkspaceOnExit = 1
 " Open fuzzy search for files
-nmap <C-S-n> :CtrlSpace O<CR>
-nmap <C-CR> :CtrlSpace h<CR><S-p>
+" nmap <C-S-n> :CtrlSpace O<CR>
+" nmap <C-CR> :CtrlSpace h<CR><S-p>
 
 " Tagbar
-nmap <A-2> :TagbarToggle<CR>
+" nmap <A-2> :TagbarToggle<CR>
 let g:tagbar_autofocus=1
 let g:tagbar_autoclose=1
 
