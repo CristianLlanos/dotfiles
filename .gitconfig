@@ -1,10 +1,11 @@
 [user]
-	name = Cristian Llanos
-	email = cristianllanos@outlook.com
-	signingkey = 42263E508FB9FB25
+  name = Cristian Llanos
+  email = hello@cristianllanos.com
+
 [core]
-	editor = /usr/local/bin/vim
-	excludesfile = /home/cristian/.gitignore_global
+  editor = /usr/bin/vim
+  excludesfile = ~/.gitignore_global
+
 [color]
   pager = true
   ui = auto
