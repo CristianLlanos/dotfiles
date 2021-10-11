@@ -24,8 +24,8 @@ USER=$1
 # Git
 #==============================================================================
 
-ln -s ${DOTFILES}/.gitconfig /home/${USER}/.gitconfig
-ln -s ${DOTFILES}/.gitignore-global /home/${USER}/.gitignore-global
+ln -s ${DOTFILES}/.gitconfig ${HOME}/.gitconfig
+ln -s ${DOTFILES}/.gitignore-global ${HOME}/.gitignore-global
 echo "Git [configurations] registered"
 
 #==============================================================================
@@ -33,21 +33,21 @@ echo "Git [configurations] registered"
 #==============================================================================
 
 # Vim resource file
-ln -s ${DOTFILES}/.vimrc /home/${USER}/.vimrc
+ln -s ${DOTFILES}/.vimrc ${HOME}/.vimrc
 echo "Vim [vimrc] registered"
 
 # Vim Vundle plugins and configuration
-ln -s ${DOTFILES}/plugins.vimrc /home/${USER}/plugins.vimrc
+ln -s ${DOTFILES}/plugins.vimrc ${HOME}/plugins.vimrc
 echo "Vim [vundle plugins] registered"
 
 # Vim colors
 mkdir -p ~/.vim/colors
-ln -s ${DOTFILES}/vim/colors /home/${USER}/.vim/colors
+ln -s ${DOTFILES}/vim/colors ${HOME}/.vim/colors
 echo "Vim [colors] registered"
 
 # Vim snippets
 mkdir -p ~/.vim/snippets
-ln -s ${DOTFILES}/vim/snippets /home/${USER}/.vim/snippets
+ln -s ${DOTFILES}/vim/snippets ${HOME}/.vim/snippets
 echo "Vim [snippets] registered"
 
 # Install VimVundle
