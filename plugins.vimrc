@@ -46,7 +46,7 @@ Plugin 'tpope/vim-fugitive'
 " SnipMate dependencies
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
+" Plugin 'garbas/vim-snipmate' " Deprecated
 Plugin 'honza/vim-snippets'
 "--------------------------------------
 Plugin 'easymotion/vim-easymotion'
