@@ -62,9 +62,9 @@ echo "Vim Plugins installed"
 # Fish
 #==============================================================================
 
-mkdir -p ~/.config/fish
-ln -s ${DOTFILES}/config.fish /home/${USER}/.config/fish/config.fish
-echo "Fish [configurations] registered"
+# mkdir -p ~/.config/fish
+# ln -s ${DOTFILES}/config.fish ${HOME}/.config/fish/config.fish
+# echo "Fish [configurations] registered"
 
 #==============================================================================
 # Binaries
