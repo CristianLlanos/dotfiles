@@ -71,6 +71,6 @@ echo "Vim Plugins installed"
 #==============================================================================
 
 # Enables vhost command
-cp ${DOTFILES}/scripts/vhost.sh /usr/local/bin/vhost
-sudo chmod a+x /usr/local/bin/vhost
-echo "Command [vhost] enabled"
+# cp ${DOTFILES}/scripts/vhost.sh /usr/local/bin/vhost
+# sudo chmod a+x /usr/local/bin/vhost
+# echo "Command [vhost] enabled"
